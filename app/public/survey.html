@@ -5,14 +5,16 @@
     <title>Friend Finder Survey</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <link rel="stylesheet"
     <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h2>Friend Finder Survey</h2>
+            <h2>
+                <span class="glyphicon glyphicon-user"></span>
+                Friend Finder Survey
+            </h2>
             <p>Complete the survey questions below to find your match!</p>
         </div>
 
@@ -132,7 +134,7 @@
                     </select>
                     <br>
                 
-                    <button type="button" class="btn btn-success col-sm-12">Find Your Match</button>
+                    <button type="button" class="btn btn-success col-sm-12" id="submit">Find Your Match</button>
             </div>
             <!-- Panel Body-->
         </div>
@@ -143,7 +145,54 @@
 </body>
 
 <script>
+    /*
+    * @function saves the user response and makes a post request to send it to the server
+    * @param {event} click
+    */
+    $("#submit").on("click", function(event) {
+        event.preventDefault();
 
+        var userResponse = {
+            name: $("#name").val(),
+            photo: $("#image").val(),
+            scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()
+            ]
+        };
+
+        console.log(userResponse);
+
+        $.post("api/friends", userResponse)
+        
+        .then(function(data){
+            console.log(data);
+        
+            //WRITE CODE FOR MODAL POP-UP
+
+            //CLEAR FORM
+            $("#name").val("");
+            $("#image").val("");
+            $("#q1").val("select");
+            $("#q2").val("select");
+            $("#q3").val("select");
+            $("#q4").val("select");
+            $("#q5").val("select");
+            $("#q6").val("select");
+            $("#q7").val("select");
+            $("#q8").val("select");
+            $("#q9").val("select");
+            $("#q10").val("select");
+        });
+    });
 
 </script>
 
