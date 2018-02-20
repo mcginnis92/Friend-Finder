@@ -1,10 +1,150 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Friend Finder Survey</title>
-    </head>
 
-    <body>
-        Insert Survey Here
-    </body>
+<head>
+    <title>Friend Finder Survey</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet"
+    <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h2>Friend Finder Survey</h2>
+            <p>Complete the survey questions below to find your match!</p>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">About You</h3>
+            </div>
+            <div class="panel-body">
+                <label for="text1">Your Name (Required)</label>
+                <input type="text" class="form-control" id="name">
+                <br>
+                <label for="text2">Image URL (Required)</label>
+                <input type="text" class="form-control" id="image">
+                <br>
+                <div class="form-group">
+                    <label for="1">You’re the first to let others know when you’re awake.</label>
+                    <select class="form-control" id="q1">
+                        <option value="select" disabled selected>Select One</option>
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neither Disagree or Agree</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+                    <br>
+                    <label for="2">On a rainy day, your favorite thing to do is jump in puddles.</label>
+                    <select class="form-control" id="q2">
+                        <option value="select" disabled selected>Select One</option>
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neither Disagree or Agree</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+                    <br>
+                    <label for="3">Others can barely keep up with your boundless energy.</label>
+                    <select class="form-control" id="q3">
+                        <option value="select" disabled selected>Select One</option>
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neither Disagree or Agree</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+                    <br>
+                    <label for="4">When meeting new people, you’re often shy.</label>
+                    <select class="form-control" id="q4">
+                        <option value="select" disabled selected>Select One</option>
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neither Disagree or Agree</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+                    <br>
+                    <label for="5">You appreciate attention, but only when you ask for it.</label>
+                    <select class="form-control" id="q5">
+                        <option value="select" disabled selected>Select One</option>
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neither Disagree or Agree</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+                    <br>
+                    <label for="6">To you, there’s nothing better than spending time at the park on a beautiful day.</label>
+                    </label>
+                    <select class="form-control" id="q6">
+                        <option value="select" disabled selected>Select One</option>
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neither Disagree or Agree</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+                    <br>
+                    <label for="7">Fruit is one of your favorite snacks.</label>
+                    <select class="form-control" id="q7">
+                        <option value="select" disabled selected>Select One</option>
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neither Disagree or Agree</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+                    <br>
+                    <label for="8">Your intelligence is one of the first things others notice about you.</label>
+                    </label>
+                    <select class="form-control" id="q8">
+                        <option value="select" disabled selected>Select One</option>
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neither Disagree or Agree</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+                    <br>
+                    <label for="9">You have unwavering loyalty to your friends and family.</label>
+                    <select class="form-control" id="q9">
+                        <option value="select" disabled selected>Select One</option>
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neither Disagree or Agree</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+                    <br>
+                    <label for="10">You’re happy to keep yourself entertained without the company of others.</label>
+                    </label>
+                    <select class="form-control" id="q10">
+                        <option value="select" disabled selected>Select One</option>
+                        <option value="1">1 - Strongly Disagree</option>
+                        <option value="2">2 - Disagree</option>
+                        <option value="3">3 - Neither Disagree or Agree</option>
+                        <option value="4">4 - Agree</option>
+                        <option value="5">5 - Strongly Agree</option>
+                    </select>
+                    <br>
+                
+                    <button type="button" class="btn btn-success col-sm-12">Find Your Match</button>
+            </div>
+            <!-- Panel Body-->
+        </div>
+        <!-- Container-->
+
+
+    </div>
+</body>
+
+<script>
+
+
+</script>
+
 </html>
