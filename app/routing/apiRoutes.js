@@ -1,8 +1,8 @@
 var friendData = require("../data/friends");
 var path = require("path");
 
-//Routes
 module.exports = function(app) {
+
     //GET route
     app.get("/api/friends", function(req, res) {
         res.json(friendData);
@@ -10,18 +10,12 @@ module.exports = function(app) {
 
     //POST route
     app.post("/api/friends", function (req, res){
-        var userResponse = req.body;
-
-        // var scoreArr = userResponse.scores;
-        // console.log(scoreArr);
-
-        // var numArr = scoreArr.map(i => parseInt(i, 10));
-        // console.log(numArr);
-
-        // // userResponse.name = req.name;
-        // // userResponse.photo = req.photo;
-        // // userResponse.scores = numArr;
-        // // console.log(userResponse);
+      
+        var userResponse = {};
+            userResponse.name = req.body.name;
+            userResponse.photo = req.body.photo;
+            userResponse.scores = JSON.parse(req.body.scores);
+            console.log(userResponse);
 
         res.json(userResponse);
     })

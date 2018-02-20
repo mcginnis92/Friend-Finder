@@ -152,21 +152,24 @@
     $("#submit").on("click", function(event) {
         event.preventDefault();
 
+        var scores = [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+            ]
+        var scoreString = JSON.stringify(scores);
+
         var userResponse = {
             name: $("#name").val(),
             photo: $("#image").val(),
-            scores: [
-                $("#q1").val(),
-                $("#q2").val(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
-                $("#q9").val(),
-                $("#q10").val()
-            ]
+            scores: scoreString
         };
 
         console.log(userResponse);
@@ -192,7 +195,7 @@
             $("#q9").val("select");
             $("#q10").val("select");
         });
-    });
+});
 
 </script>
 
