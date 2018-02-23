@@ -1,10 +1,10 @@
-var friends = require("../data/friends");
+var friends = require("../data/friends.js");
 var path = require("path");
 
 module.exports = function (app) {
 
   //GET route
-  app.get("api/friends", function(req, res){
+  app.get("/api/friends", function(req, res){
     res.json(friends);
   });
 
@@ -26,14 +26,14 @@ module.exports = function (app) {
       
         for (var j = 0; j < scoreNums.length; j++){
           absVal = Math.abs(friends[i].scores[j] - scoreNums[j]);
-          totalDifference += absVal
+          totalDifference += absVal;
         }
     
       differencesArray.push(totalDifference);
     
       var match = (Math.min(...differencesArray));
         if (match === differencesArray[i]){
-        var newFriend = friends[i]
+        var newFriend = friends[i];
         }
     }
     res.json(newFriend);

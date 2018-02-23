@@ -56,7 +56,7 @@ var friends = [
       },   
 
     {
-      name: "Lizzy Lizard",
+      name: "Lizard",
       photo: "images/lizard.jpg",
       description: "Like the lizard, you value solidarity and sometimes just want to do your own thing. You’re pretty low maintenance and would be well matched with this reptile.",
       scores: [
