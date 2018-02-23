@@ -1,10 +1,10 @@
-var friends = require("../data/friends");
+var friends = require("../data/friends.js");
 var path = require("path");
 
 module.exports = function (app) {
 
   //GET route
-  app.get("api/friends", function(req, res){
+  app.get("/api/friends", function(req, res){
     res.json(friends);
   });
 
@@ -18,30 +18,24 @@ module.exports = function (app) {
     });
 
     //Checks the differences in response between the user input and each existing friend
-    var absValue0 = 0;
-    var absValue1 = 0;
-    var absValue2 = 0;
+    var absVal = 0;
+    var differencesArray = [];
 
-    for (var i = 0; i < scoreNums.length; i++) {
-      absValue0 += Math.abs(friends[0].scores[i] - scoreNums[i]);
-      absValue1 += Math.abs(friends[1].scores[i] - scoreNums[i]);
-      absValue2 += Math.abs(friends[2].scores[i] - scoreNums[i]);
+    for (var i = 0; i < friends.length; i++) {
+      var totalDifference = 0;
+      
+        for (var j = 0; j < scoreNums.length; j++){
+          absVal = Math.abs(friends[i].scores[j] - scoreNums[j]);
+          totalDifference += absVal;
+        }
+    
+      differencesArray.push(totalDifference);
+    
+      var match = (Math.min(...differencesArray));
+        if (match === differencesArray[i]){
+        var newFriend = friends[i];
+        }
     }
-
-    var newFriend;
-    var match = Math.min(absValue0, absValue1, absValue2);
-    switch (match) {
-      case absValue0:
-        newFriend = friends[0];
-        break;
-      case absValue1:
-        newFriend = friends[1];
-        break;
-      case absValue2:
-        newFriend = friends[2];
-        break;
-    }
-
     res.json(newFriend);
   })
 };

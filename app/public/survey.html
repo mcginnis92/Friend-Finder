@@ -2,11 +2,12 @@
 <html>
 
 <head>
-    <title>Friend Finder Survey</title>
+    <title>Pet Finder Survey</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,8 +32,8 @@
 
     <div class="container">
         <div class="jumbotron">
-            <h2>Furry Friend Finder</h2>
-            <p>Complete the survey questions below to find your match!</p>
+            <h2>Pet Finder <span><i class="fa fa-paw"></i></span></h2>
+            <p>Complete the survey questions below to find your ideal pet!</p>
         </div>
 
         <div class="panel panel-primary">
@@ -159,6 +160,12 @@
         <!-- Container-->
     </div>
 
+    <footer class="footer">
+        <div class="container">
+            <p><a href="/api/friends" target="_blank">API Friends List</a> | <a href="https://github.com/mcginnis92/Friend-Finder" target="_blank">GitHub Repo</a></p>
+        </div>
+    </footer>
+
     <script>
         $(document).ready(function () {
 
@@ -200,16 +207,16 @@
 
                             $("#name").val("");
                             $("#image").val("");
-                            $("#q1").val("select");
-                            $("#q2").val("select");
-                            $("#q3").val("select");
-                            $("#q4").val("select");
-                            $("#q5").val("select");
-                            $("#q6").val("select");
-                            $("#q7").val("select");
-                            $("#q8").val("select");
-                            $("#q9").val("select");
-                            $("#q10").val("select");
+                            $("#q1").val("");
+                            $("#q2").val("");
+                            $("#q3").val("");
+                            $("#q4").val("");
+                            $("#q5").val("");
+                            $("#q6").val("");
+                            $("#q7").val("");
+                            $("#q8").val("");
+                            $("#q9").val("");
+                            $("#q10").val("");
                         });
                 }
                 else {
