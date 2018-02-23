@@ -54,6 +54,24 @@ var friends = [
         2
       ]
       },   
+
+    {
+      name: "Lizzy Lizard",
+      photo: "images/lizard.jpg",
+      description: "Like the lizard, you value solidarity and sometimes just want to do your own thing. You’re pretty low maintenance and would be well matched with this reptile.",
+      scores: [
+        1,
+        3,
+        1,
+        2, 
+        1, 
+        2,
+        4,
+        3,
+        2,
+        5
+      ]
+    }
 ];
 
 module.exports = friends;
