@@ -3,18 +3,35 @@
 
 <head>
     <title>Friend Finder Survey</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
+
+    <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="matchModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="myModalLabel"></h3>
+                </div>
+                <div class="modal-body">
+                    <h3 id="matchName"></h3>
+                    <div id="matchPhoto"></div>
+                    <p id="matchDescription"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="jumbotron">
-            <h2>
-                <span class="glyphicon glyphicon-user"></span>
-                Friend Finder Survey
-            </h2>
+            <h2>Furry Friend Finder</h2>
             <p>Complete the survey questions below to find your match!</p>
         </div>
 
@@ -23,16 +40,16 @@
                 <h3 class="panel-title">About You</h3>
             </div>
             <div class="panel-body">
-                <label for="text1">Your Name (Required)</label>
+                <label for="text1">Your Name</label>
                 <input type="text" class="form-control" id="name">
                 <br>
-                <label for="text2">Image URL (Required)</label>
+                <label for="text2">Image URL</label>
                 <input type="text" class="form-control" id="image">
                 <br>
                 <div class="form-group">
                     <label for="1">You’re the first to let others know when you’re awake.</label>
                     <select class="form-control" id="q1">
-                        <option value="select" disabled selected>Select One</option>
+                        <option value="" disabled selected>Select One</option>
                         <option value="1">1 - Strongly Disagree</option>
                         <option value="2">2 - Disagree</option>
                         <option value="3">3 - Neither Disagree or Agree</option>
@@ -42,7 +59,7 @@
                     <br>
                     <label for="2">On a rainy day, your favorite thing to do is jump in puddles.</label>
                     <select class="form-control" id="q2">
-                        <option value="select" disabled selected>Select One</option>
+                        <option value="" disabled selected>Select One</option>
                         <option value="1">1 - Strongly Disagree</option>
                         <option value="2">2 - Disagree</option>
                         <option value="3">3 - Neither Disagree or Agree</option>
@@ -52,7 +69,7 @@
                     <br>
                     <label for="3">Others can barely keep up with your boundless energy.</label>
                     <select class="form-control" id="q3">
-                        <option value="select" disabled selected>Select One</option>
+                        <option value="" disabled selected>Select One</option>
                         <option value="1">1 - Strongly Disagree</option>
                         <option value="2">2 - Disagree</option>
                         <option value="3">3 - Neither Disagree or Agree</option>
@@ -62,7 +79,7 @@
                     <br>
                     <label for="4">When meeting new people, you’re often shy.</label>
                     <select class="form-control" id="q4">
-                        <option value="select" disabled selected>Select One</option>
+                        <option value="" disabled selected>Select One</option>
                         <option value="1">1 - Strongly Disagree</option>
                         <option value="2">2 - Disagree</option>
                         <option value="3">3 - Neither Disagree or Agree</option>
@@ -72,7 +89,7 @@
                     <br>
                     <label for="5">You appreciate attention, but only when you ask for it.</label>
                     <select class="form-control" id="q5">
-                        <option value="select" disabled selected>Select One</option>
+                        <option value="" disabled selected>Select One</option>
                         <option value="1">1 - Strongly Disagree</option>
                         <option value="2">2 - Disagree</option>
                         <option value="3">3 - Neither Disagree or Agree</option>
@@ -83,7 +100,7 @@
                     <label for="6">To you, there’s nothing better than spending time at the park on a beautiful day.</label>
                     </label>
                     <select class="form-control" id="q6">
-                        <option value="select" disabled selected>Select One</option>
+                        <option value="" disabled selected>Select One</option>
                         <option value="1">1 - Strongly Disagree</option>
                         <option value="2">2 - Disagree</option>
                         <option value="3">3 - Neither Disagree or Agree</option>
@@ -93,7 +110,7 @@
                     <br>
                     <label for="7">Fruit is one of your favorite snacks.</label>
                     <select class="form-control" id="q7">
-                        <option value="select" disabled selected>Select One</option>
+                        <option value="" disabled selected>Select One</option>
                         <option value="1">1 - Strongly Disagree</option>
                         <option value="2">2 - Disagree</option>
                         <option value="3">3 - Neither Disagree or Agree</option>
@@ -104,7 +121,7 @@
                     <label for="8">Your intelligence is one of the first things others notice about you.</label>
                     </label>
                     <select class="form-control" id="q8">
-                        <option value="select" disabled selected>Select One</option>
+                        <option value="" disabled selected>Select One</option>
                         <option value="1">1 - Strongly Disagree</option>
                         <option value="2">2 - Disagree</option>
                         <option value="3">3 - Neither Disagree or Agree</option>
@@ -114,7 +131,7 @@
                     <br>
                     <label for="9">You have unwavering loyalty to your friends and family.</label>
                     <select class="form-control" id="q9">
-                        <option value="select" disabled selected>Select One</option>
+                        <option value="" disabled selected>Select One</option>
                         <option value="1">1 - Strongly Disagree</option>
                         <option value="2">2 - Disagree</option>
                         <option value="3">3 - Neither Disagree or Agree</option>
@@ -125,7 +142,7 @@
                     <label for="10">You’re happy to keep yourself entertained without the company of others.</label>
                     </label>
                     <select class="form-control" id="q10">
-                        <option value="select" disabled selected>Select One</option>
+                        <option value="" disabled selected>Select One</option>
                         <option value="1">1 - Strongly Disagree</option>
                         <option value="2">2 - Disagree</option>
                         <option value="3">3 - Neither Disagree or Agree</option>
@@ -133,67 +150,79 @@
                         <option value="5">5 - Strongly Agree</option>
                     </select>
                     <br>
-                
-                    <button type="button" class="btn btn-success col-sm-12" id="submit">Find Your Match</button>
+
+                    <button type="button" class="btn btn-success col-sm-12" id="submit" data-toggle="modal" data-target="#matchModal">Find Your Match</button>
+                </div>
+                <!-- Panel Body-->
             </div>
-            <!-- Panel Body-->
         </div>
         <!-- Container-->
-
-
     </div>
-</body>
 
-<script>
-    /*
-    * @function saves the user response and makes a post request to send it to the server
-    * @param {event} click
-    */
-    $("#submit").on("click", function(event) {
-        event.preventDefault();
+    <script>
+        $(document).ready(function () {
 
-        var userResponse = {
-            name: $("#name").val(),
-            photo: $("#image").val(),
-            scores: [
-                $("#q1").val(),
-                $("#q2").val(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
-                $("#q9").val(),
-                $("#q10").val()
-            ]
-        };
+            $("#submit").on("click", function (event) {
+                event.preventDefault();
 
-        console.log(userResponse);
+                var scores = [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
 
-        $.post("api/friends", userResponse)
-        
-        .then(function(data){
-            console.log(data);
-        
-            //WRITE CODE FOR MODAL POP-UP
+                if (!scores.includes(null)){
 
-            //CLEAR FORM
-            $("#name").val("");
-            $("#image").val("");
-            $("#q1").val("select");
-            $("#q2").val("select");
-            $("#q3").val("select");
-            $("#q4").val("select");
-            $("#q5").val("select");
-            $("#q6").val("select");
-            $("#q7").val("select");
-            $("#q8").val("select");
-            $("#q9").val("select");
-            $("#q10").val("select");
+                    var scoreString = JSON.stringify(scores);
+
+                    var userResponse = {
+                        name: $("#name").val(),
+                        photo: $("#image").val(),
+                        scores: scoreString
+                    };
+
+                    $.post("api/friends", userResponse)
+
+                        .then(function (data) {
+                            $('#myModalLabel').text("You've got a Friend!");
+                            $('#matchName').text(data.name);
+                            $('#matchPhoto').html('<img src="' + data.photo + '" />');
+                            $('#matchDescription').text(data.description);
+
+                            $('.modal').modal();
+
+                            $("#name").val("");
+                            $("#image").val("");
+                            $("#q1").val("select");
+                            $("#q2").val("select");
+                            $("#q3").val("select");
+                            $("#q4").val("select");
+                            $("#q5").val("select");
+                            $("#q6").val("select");
+                            $("#q7").val("select");
+                            $("#q8").val("select");
+                            $("#q9").val("select");
+                            $("#q10").val("select");
+                        });
+                }
+                else {
+                    $('#myModalLabel').text("Error");
+                    $('#matchName').text("");
+                    $('#matchPhoto').text("");
+                    $('#matchDescription').text("Please complete all fields before submitting the survey.");
+                }
+
+            });
         });
-    });
 
-</script>
+    </script>
+</body>
 
 </html>

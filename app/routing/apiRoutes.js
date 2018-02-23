@@ -1,28 +1,47 @@
-var friendData = require("../data/friends");
+var friends = require("../data/friends");
 var path = require("path");
 
-//Routes
-module.exports = function(app) {
-    //GET route
-    app.get("/api/friends", function(req, res) {
-        res.json(friendData);
+module.exports = function (app) {
+
+  //GET route
+  app.get("api/friends", function(req, res){
+    res.json(friends);
+  });
+
+  //POST route
+  app.post("/api/friends", function (req, res) {
+
+    //Turns the score string into an array so we can change the values to numbers
+    var userScores = JSON.parse(req.body.scores);
+    var scoreNums = userScores.map(function (i) {
+      return parseInt(i, 10);
     });
 
-    //POST route
-    app.post("/api/friends", function (req, res){
-        var userResponse = req.body;
+    //Checks the differences in response between the user input and each existing friend
+    var absValue0 = 0;
+    var absValue1 = 0;
+    var absValue2 = 0;
 
-        // var scoreArr = userResponse.scores;
-        // console.log(scoreArr);
+    for (var i = 0; i < scoreNums.length; i++) {
+      absValue0 += Math.abs(friends[0].scores[i] - scoreNums[i]);
+      absValue1 += Math.abs(friends[1].scores[i] - scoreNums[i]);
+      absValue2 += Math.abs(friends[2].scores[i] - scoreNums[i]);
+    }
 
-        // var numArr = scoreArr.map(i => parseInt(i, 10));
-        // console.log(numArr);
+    var newFriend;
+    var match = Math.min(absValue0, absValue1, absValue2);
+    switch (match) {
+      case absValue0:
+        newFriend = friends[0];
+        break;
+      case absValue1:
+        newFriend = friends[1];
+        break;
+      case absValue2:
+        newFriend = friends[2];
+        break;
+    }
 
-        // // userResponse.name = req.name;
-        // // userResponse.photo = req.photo;
-        // // userResponse.scores = numArr;
-        // // console.log(userResponse);
-
-        res.json(userResponse);
-    })
+    res.json(newFriend);
+  })
 };
