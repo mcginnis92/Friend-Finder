@@ -1,9 +1,9 @@
-# Friend-Finder
+# Pet-Finder
 ## Purpose
 Friend Finder is an app that matches users to a pet based on compatibility. The match is made by calculating which pet is the most similar to the user in each survey response.
 
 ## Getting Started
-This app is deployed to Heroku; [check it out here to instantly demo](https://git.heroku.com/friend-finder-mmoran.git).
+This app is deployed to Heroku; [check it out here to instantly demo](https://friend-finder-mmoran.herokuapp.com/).
 
 ## Built With
 * [Bootstrap V3.3.7](https://getbootstrap.com/docs/3.3/getting-started/) - CSS framework
@@ -16,7 +16,9 @@ This app is deployed to Heroku; [check it out here to instantly demo](https://gi
 To install the application follow the instructions below:
 
 git clone https://github.com/mcginnis92/Friend-Finder.git
+
 cd Friend-Finder
+
 npm install
 
 ### Running Locally
