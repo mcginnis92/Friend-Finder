@@ -3,7 +3,7 @@
 Friend Finder is an app that matches users to a pet based on compatibility. The match is made by calculating which pet is the most similar to the user in each survey response.
 
 ## Getting Started
-This app is deployed to Heroku; [check it out here to instantly demo](https://friend-finder-mmoran.herokuapp.com/).
+This app is deployed to Heroku; [check it out here to instantly demo](https://pet-finder-mmoran.herokuapp.com/).
 
 ## Built With
 * [Bootstrap V3.3.7](https://getbootstrap.com/docs/3.3/getting-started/) - CSS framework
